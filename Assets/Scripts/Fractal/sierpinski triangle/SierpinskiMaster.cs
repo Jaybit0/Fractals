@@ -6,11 +6,11 @@ public class SierpinskiMaster : MonoBehaviour
 {
     public ComputeShader fractalShader;
 
-    [Range(1, 20)]
+    [Range(1, 200)]
     public float darkness = 50;
     [Range(1, 5)]
-    public float scale = 1.7f;
-    [Range(1, 100)]
+    public float scale = 1.45f;
+    [Range(1, 70)]
     public int iterations = 30;
 
     [Header("Colour mixing")]
@@ -24,7 +24,7 @@ public class SierpinskiMaster : MonoBehaviour
     Light directionalLight;
 
     [Header("Animation Settings")]
-    public float powerIncreaseSpeed = 0.2f;
+    public float scaleIncreaseSpeed = 0.05f;
 
     void Start()
     {
@@ -40,6 +40,10 @@ public class SierpinskiMaster : MonoBehaviour
     // Animate properties
     void Update()
     {
+        if (Application.isPlaying)
+        {
+            scale += scaleIncreaseSpeed * Time.deltaTime;
+        }
     }
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)

@@ -224,7 +224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1151127725}
-  - component: {fileID: 1151127724}
   - component: {fileID: 1151127723}
   - component: {fileID: 1151127722}
   - component: {fileID: 1151127721}
@@ -299,37 +298,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractalShader: {fileID: 7200000, guid: a44cd45e394505f468279e36c740ff76, type: 3}
-  darkness: 50
-  scale: 1.7
-  iterations: 30
-  blackAndWhite: 1
-  redA: 0
-  greenA: 0
-  blueA: 1
-  powerIncreaseSpeed: 0.2
---- !u!114 &1151127724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151127720}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345f8d9f82bd845fc8939f36745e0981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fractalShader: {fileID: 7200000, guid: d135fb6523b39409b829979ae009b927, type: 3}
-  fractalPower: 9.4
-  darkness: 75
+  darkness: 52.9
+  scale: 1.45
+  iterations: 50
   blackAndWhite: 0
-  redA: 0
-  greenA: 0
+  redA: 0.393
+  greenA: 0.538
   blueA: 1
-  redB: 1
-  greenB: 0
-  blueB: 0
-  powerIncreaseSpeed: 0
+  scaleIncreaseSpeed: 0.05
 --- !u!4 &1151127725
 Transform:
   m_ObjectHideFlags: 0

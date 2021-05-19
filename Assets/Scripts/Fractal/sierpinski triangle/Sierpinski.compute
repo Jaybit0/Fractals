@@ -12,9 +12,9 @@ float3 colourAMix;
 float scale;
 int iterations;
 
-static const float epsilon = 0.00001f;
+static const float epsilon = 0.001f;
 static const float maxDst = 200;
-static const int maxStepCount = 1000;
+static const int maxStepCount = 250;
 
 struct Ray {
     float3 origin;
@@ -103,11 +103,10 @@ float SceneInfo(float3 position) {
 }
 
 float3 EstimateNormal(float3 p) {
-    float2 e = float2(1.0, -1.0) * 0.5773;
-    return normalize(e.xyy * (p + e.xyy * epsilon) +
-        e.yyx * (p + e.yyx * epsilon) +
-        e.yxy * (p + e.yxy * epsilon) +
-        e.xxx * (p + e.xxx * epsilon));
+    float x = SceneInfo(float3(p.x + epsilon, p.y, p.z)) - SceneInfo(float3(p.x - epsilon, p.y, p.z));
+    float y = SceneInfo(float3(p.x, p.y + epsilon, p.z)) - SceneInfo(float3(p.x, p.y - epsilon, p.z));
+    float z = SceneInfo(float3(p.x, p.y, p.z + epsilon)) - SceneInfo(float3(p.x, p.y, p.z - epsilon));
+    return normalize(float3(x, y, z));
 }
 
 [numthreads(8, 8, 1)]
