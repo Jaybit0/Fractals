@@ -1,2 +1,2 @@
 # Fractals
-Based on Sebastian Langue
+Based on the work of #[this](https://github.com/SebLague/Ray-Marching).
