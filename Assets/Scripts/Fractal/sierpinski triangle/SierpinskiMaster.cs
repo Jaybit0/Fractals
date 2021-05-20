@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode, ImageEffectAllowedInSceneView]
 public class SierpinskiMaster : MonoBehaviour
 {
     public ComputeShader fractalShader;
@@ -10,8 +11,8 @@ public class SierpinskiMaster : MonoBehaviour
     public float darkness = 50;
     [Range(1, 5)]
     public float scale = 1.45f;
-    [Range(1, 70)]
-    public int iterations = 30;
+    [Range(1, 100)]
+    public int iterations = 50;
 
     [Header("Colour mixing")]
     [Range(0, 1)] public float blackAndWhite;
@@ -25,6 +26,10 @@ public class SierpinskiMaster : MonoBehaviour
 
     [Header("Animation Settings")]
     public float scaleIncreaseSpeed = 0.05f;
+    public float maxScale = 1.8f;
+    public float minScale = 1.45f;
+
+    private float dir = 1;
 
     void Start()
     {
@@ -42,7 +47,12 @@ public class SierpinskiMaster : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            scale += scaleIncreaseSpeed * Time.deltaTime;
+            if ((dir > 0 && scale + dir * scaleIncreaseSpeed * Time.deltaTime > maxScale)
+                    || dir < 0 && scale + dir * scaleIncreaseSpeed * Time.deltaTime < minScale)
+            {
+                dir *= -1;
+            }
+            scale += dir * scaleIncreaseSpeed * Time.deltaTime;
         }
     }
 

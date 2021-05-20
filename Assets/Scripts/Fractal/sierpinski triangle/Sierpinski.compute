@@ -13,8 +13,8 @@ float scale;
 int iterations;
 
 static const float epsilon = 0.001f;
-static const float maxDst = 200;
-static const int maxStepCount = 250;
+static const float maxDst = 1600;
+static const int maxStepCount = 2000;
 
 struct Ray {
     float3 origin;
