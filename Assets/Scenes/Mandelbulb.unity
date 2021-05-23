@@ -376,14 +376,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fractalShader: {fileID: 7200000, guid: d135fb6523b39409b829979ae009b927, type: 3}
   fractalPower: 1
-  darkness: 75
+  darkness: 37.77
   blackAndWhite: 0
-  redA: 0
-  greenA: 0
-  blueA: 1
-  redB: 1
-  greenB: 0
-  blueB: 0
+  redA: 0.697
+  greenA: 0.414
+  blueA: 0.851
+  redB: 0.141
+  greenB: 0.601
+  blueB: 0.4
   powerIncreaseSpeed: 0.2
 --- !u!114 &534669907
 MonoBehaviour:
